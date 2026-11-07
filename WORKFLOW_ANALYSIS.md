@@ -6,6 +6,8 @@ The workflow starts when changes are pushed to the `main` branch or when someone
 
 ### 2. What are the four main steps this workflow performs?
 
+The workflow separates testing and deployment into two jobs. First, the build-and-test job checks the HTML, examines links, and uploads the website files. Next, the deploy job uses needs: build-and-test to make sure the first job finishes successfully before deployment begins. I think this is important because it helps prevent a website from being published before the required checks are completed.
+
 The workflow's `build-and-test` job includes four main steps:
 
 1. **Checkout code:** Gets the project files from the repository.
